@@ -1,0 +1,59 @@
+Client:
+1. has a JFrame, mainFrame, initialize the login view -> put the login view into the mainFrame -> display the mainFrame
+2. has an User
+3. LoginViewController (username, password), sign up function
+4. ProductViewController -> hide the login view, display the product view controller (mainFrame.setContentPane())
+5. CustomerViewController -> 3 buttons (CreateNewOrderViewController, AccountInformationViewController, OrderHistoryViewController)
+
+
+
+Start the client -> show log in screen: username, password
+client -> Message(Message.LOGIN_REQUEST, UserInfo(username, password)) -> server
+server asks the database about the username -> User(username, firstname, lastname,....) -> server
+server check: 1. if there is no username -> "the user does not exist"
+			  2. password does not match -> Error message
+			  3. server -> client: User(username, firstname, lastname,....)
+
+
+client: User(username, firstname, lastname,...., role) -> check the role
+
+if the user is the manager -> hide the login screen, display the manage product screen
+if the user is the customer -> create new order, manage account information, order history
+
+if (user.isManager()) {
+	//initilize the product view viewer
+
+}
+
++ CreateNewOrderViewController
+
+1. How the user make a new order:
+create an empty order with an orderid
+textfield for product id:
+textfield for quantity:
+addProduct button -> create an orderLine 
+createOrder button -> send an order, and all orderlines -> send to the server
+
+2. Product search feature: 
+textfield for product name:
+Table for display the product ids (or product information)
+
++ AccountInformationViewController:
+
+Manage Account information:
+username
+password
+FirstName
+LastName
+...
+...
+...
+Update User Info: -> update the user -> send the updated user -> send to the server
+
++ OrderHistoryViewController:
+
+Order history:
+TableView
+send a order history request to server -> the list of all the orders associcate with the userid -> display the list of orders in the tableview
+
+
